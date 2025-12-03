@@ -2,7 +2,7 @@ import json, time
 from Modules import *
 from Config.keys import *
 from Config import Logging
-from Modules.Utils.afficherMenuPrincipal import *
+from Modules.Models.Menus import *
 from Modules.Models.Terminal import *
 
 def clearTerminal():
@@ -21,7 +21,7 @@ def __main__():
         try:
             clearTerminal()
             logg.info("Programme lancé.")
-            afficherMenu()
+            afficherMenuP()
             
 
             choice = input("\nChoisissez une option (0-4) : ")
@@ -44,7 +44,7 @@ def __main__():
                 return
             
             else:
-                print("Veuillez entrer un choix valide", end="")
+                afficherAvecPoints("Entrez un choix valide")
 
         except KeyboardInterrupt:
             logg.info("Arrêt forcé du programme par l'utilisateur.")

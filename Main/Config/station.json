@@ -13,6 +13,7 @@
     "initialTemperature": 24.3,
     "initialIntegrity": 1.0,
     "initialAlertLevel": 0,
-    "initialCrewCount": 10,
+    "initialCrewCount": 5,
+    "maxCrewCount": 10,
     "hourComsuption": 0.05
 }
