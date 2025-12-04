@@ -16,7 +16,7 @@ def generateAndPushValues(name):
     initialWater = round(random.uniform(50, 100), 2)
     maxWater = round(random.uniform(100, 300))
     temperature = round(random.uniform(15, 25), 2)
-    integrity = round(random.uniform(0.95, 1), 1)
+    integrity = round(random.uniform(99, 100), 1)
     alertLevel = 0
     maxCrewCount = random.randint(3, 7)
     crewCount = random.randint(0, maxCrewCount)
