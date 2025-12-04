@@ -4,6 +4,8 @@ from Config.keys import *
 from Config import Logging
 from Modules.Models.Menus import *
 from Modules.Models.Terminal import *
+from Modules.Models.Station import *
+from Modules.Utils.randomInitialValues import *
 
 def clearTerminal():
     Terminal.clearTerminal()
@@ -21,14 +23,18 @@ def __main__():
         try:
             clearTerminal()
             logg.info("Programme lancé.")
-            afficherMenuP()
+            Menus.afficherMenuP()
             
 
             choice = input("\nChoisissez une option (0-4) : ")
             clearTerminal()
 
             if choice == '1':
-                afficherAvecPoints("Démarrage de la simulation")
+                nom = input("Entrez un nom pour votre station : ")
+                generateAndPushValues(nom)
+                # afficherAvecPoints("Démarrage de la simulation")
+                station = Station(nom)
+                station.descrireStation()
                 return
 
             elif choice == '2':

@@ -4,7 +4,7 @@ donneesInitialesJSON = open("Main/Config/station.json", "r")
 donneesInitiales = json.load(donneesInitialesJSON)
 
 class Station:
-    def __init__(self, name = donneesInitiales['name'], initialAltitude = donneesInitiales['initialAltitude'], 
+    def __init__(self, name = donneesInitiales["name"], initialAltitude = donneesInitiales['initialAltitude'], 
                  initialVelocity = donneesInitiales['initialVelocity'], initialFuel = donneesInitiales['initialFuel'],
                  maxFuel = donneesInitiales['maxFuel'], initialEnergy = donneesInitiales['initialEnergy'],
                  maxEnergy = donneesInitiales['maxEnergy'], initialOxygen = donneesInitiales['initialOxygen'], 
@@ -29,8 +29,21 @@ class Station:
         self.__integrity = initialIntegrity
         self.__alertLevel = initialAlertLevel
         self.__crewCount = initialCrewCount
+        self.__maxCrewCount = maxCrewCount
         self.__hourComsuption = hourComsuption
     
+    def descrireStation(self):
+        print(f"""\nNom de la station : {self.getName()}
+Altitude actuelle : {self.getAltitude()} km
+Vitesse actuelle : {self.getVelocity()} km/s\nCarburant : {self.getFuel()} L
+Carburant maximal : {self.getMaxFuel()} L\nEnergie : {self.getEnergy()} kWh
+Energie maximale : {self.getMaxEnergy()} kWh\nOxygène : {self.getOxygen()} u
+Oxygène maximal : {self.getMaxOxygen()} u\nEau : {self.getWater()} L
+Eau maximal : {self.getMaxWater()} L\nTempérature : {self.getTemperature()} °C
+Intégrité : {self.getIntegrity()}%\nNiveau d'alerte : {self.getAlertLevel()}
+Nombre de personnel : {self.getCrewCount()}\nNombre de personnel max : {self.getMaxCrewCount()}
+Consommation horaire : {self.getHourComsuption()} L/h""")
+
     def getName(self):
         return self.__name
     
@@ -76,5 +89,9 @@ class Station:
     def getCrewCount(self):
         return self.__crewCount
     
+    def getMaxCrewCount(self):
+        return self.__maxCrewCount
+    
     def getHourComsuption(self):
         return self.__hourComsuption
+    
